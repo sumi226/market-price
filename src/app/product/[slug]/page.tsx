@@ -69,9 +69,9 @@ export default async function ProductDetailsPage({ params }: Props) {
       </section>
 
       <section>
-        <h2 className="mb-4 text-2xl font-bold">দামের সারসংক্ষেপ</h2>
+        <h2 className="mb-4 text-2xl  font-bold">দামের সারসংক্ষেপ</h2>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 text-black sm:grid-cols-3">
           {[
             { label: "সর্বনিম্ন বাজারদর", value: lowestPrice },
             { label: "সর্বোচ্চ বাজারদর", value: highestPrice },
@@ -79,20 +79,20 @@ export default async function ProductDetailsPage({ params }: Props) {
           ].map((item) => (
             <div
               key={item.label}
-              className="stat rounded-2xl border border-base-300 bg-base-100"
+              className="stat rounded-2xl border border-base-300  bg-green-300 text-black"
             >
               <div className="stat-title">{item.label}</div>
-              <div className="stat-value text-xl text-primary">
+              <div className="stat-value text-xl text-black">
                 {formatBn(item.value)} টাকা
               </div>
-              <div className="stat-desc">{product.unit}</div>
+              <div className="stat-desc text-black">{product.unit}</div>
             </div>
           ))}
         </div>
         {marketPrices.length > 0 && (
-          <p className="mt-3 text-sm text-base-content/60">
-            গড় বাজারদর প্রতিটি বাজারের সর্বনিম্ন ও সর্বোচ্চ দামের মধ্যমানের
-            গড় হিসেবে দেখানো হয়েছে।
+          <p className="mt-3 text-sm text-black">
+            গড় বাজারদর প্রতিটি বাজারের সর্বনিম্ন ও সর্বোচ্চ দামের মধ্যমানের গড়
+            হিসেবে দেখানো হয়েছে।
           </p>
         )}
       </section>
@@ -100,7 +100,7 @@ export default async function ProductDetailsPage({ params }: Props) {
       <section>
         <h2 className="mb-4 text-2xl font-bold">বাজারভিত্তিক আজকের দাম</h2>
 
-        <div className="overflow-x-auto rounded-2xl border border-base-300">
+        <div className="overflow-x-auto rounded-2xl bg-emerald-300 border border-black">
           <table className="table">
             <thead>
               <tr>
@@ -110,7 +110,7 @@ export default async function ProductDetailsPage({ params }: Props) {
                 <th>সর্বোচ্চ</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody >
               {marketPrices.length > 0 ? (
                 marketPrices.map((market) => (
                   <tr key={`${market.marketName}-${market.division}`}>
