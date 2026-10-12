@@ -36,13 +36,13 @@ export default function AccountMenu() {
     return (
       <div className="flex items-center gap-2">
         <Link className="btn btn-ghost btn-sm sm:btn-md" href="/sign-in">
-          লগইন
+          সাইন ইন
         </Link>
         <Link
           className="btn btn-sm border-emerald-500 bg-emerald-500 text-white hover:border-emerald-600 hover:bg-emerald-600 sm:btn-md"
           href="/sign-up"
         >
-          রেজিস্টার
+          সাইন আপ
         </Link>
       </div>
     );

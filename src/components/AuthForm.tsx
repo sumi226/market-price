@@ -113,7 +113,9 @@ export default function AuthForm({ mode }: AuthFormProps) {
           </Link>
           <div className="text-center">
             <h1 className="text-2xl font-black text-blue-950 sm:text-3xl">
-              {isSignUp ? "নতুন অ্যাকাউন্ট তৈরি করুন" : "আপনার অ্যাকাউন্টে লগইন করুন"}
+              {isSignUp
+                ? "নতুন অ্যাকাউন্ট তৈরি করুন"
+                : "আপনার অ্যাকাউন্টে লগইন করুন"}
             </h1>
             <p className="mt-2 text-sm text-base-content/60">
               {isSignUp
@@ -169,9 +171,9 @@ export default function AuthForm({ mode }: AuthFormProps) {
                   অপেক্ষা করুন...
                 </>
               ) : isSignUp ? (
-                "রেজিস্টার করুন"
+                "সাইন আপ করুন"
               ) : (
-                "লগইন করুন"
+                "সাইন ইন করুন"
               )}
             </button>
           </form>
@@ -203,7 +205,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
               className="link link-primary font-semibold"
               href={isSignUp ? "/sign-in" : "/sign-up"}
             >
-              {isSignUp ? "লগইন করুন" : "রেজিস্টার করুন"}
+              {isSignUp ? "সাইন ইন করুন" : "সাইন আপ করুন"}
             </Link>
           </p>
         </div>
