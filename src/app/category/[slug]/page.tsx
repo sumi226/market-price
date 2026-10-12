@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ProductCard from "@/components/ProductCard";
 import { getCategoryProducts } from "@/lib/products";
 import CategoryProductList from "@/components/CategoryProductList";
 
@@ -25,6 +24,9 @@ export default async function CategoryPage({ params }: Props) {
 
   return (
     <main className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+      <Link href="/" className="link link-hover text-sm">
+        ← হোম পেজ
+      </Link>
       <div className="mb-8">
         <p className="text-sm text-base-content/60">বাজার দর / ক্যাটাগরি</p>
         <h1 className="mt-2 text-3xl font-black">🛒 {products[0].category}</h1>
@@ -37,5 +39,4 @@ export default async function CategoryPage({ params }: Props) {
     </main>
   );
 }
-
 

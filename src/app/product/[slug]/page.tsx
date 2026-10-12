@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProductById, getProducts, formatBn } from "@/lib/products";
+import AddToCartButton from "@/components/AddToCartButton";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -48,7 +49,7 @@ export default async function ProductDetailsPage({ params }: Props) {
         ← হোম পেজ
       </Link>
 
-      <section className="card border border-base-300 bg-base-100 shadow-sm">
+      <section className="card border border-base-300 bg-emerald-300 shadow-sm">
         <div className="card-body sm:flex-row sm:items-center sm:gap-6">
           <div className="flex h-28 w-28 shrink-0 items-center justify-center rounded-2xl bg-base-200 text-6xl">
             {product.emoji}
@@ -63,6 +64,9 @@ export default async function ProductDetailsPage({ params }: Props) {
             <div className="mt-3 flex flex-wrap gap-2">
               <span className="badge badge-primary">{product.category}</span>
               <span className="badge badge-outline">{product.unit}</span>
+            </div>
+            <div className="mt-4">
+              <AddToCartButton product={product} />
             </div>
           </div>
         </div>

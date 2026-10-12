@@ -108,6 +108,9 @@ export default function AuthForm({ mode }: AuthFormProps) {
     <main className="mx-auto flex w-full max-w-6xl flex-1 items-center justify-center px-4 py-10 sm:px-6">
       <section className="card w-full max-w-md border border-emerald-200 bg-emerald-50 shadow-xl">
         <div className="card-body gap-5 p-6 sm:p-8">
+          <Link href="/" className="link link-hover self-start text-sm">
+            ← হোম পেজ
+          </Link>
           <div className="text-center">
             <h1 className="text-2xl font-black text-blue-950 sm:text-3xl">
               {isSignUp ? "নতুন অ্যাকাউন্ট তৈরি করুন" : "আপনার অ্যাকাউন্টে লগইন করুন"}

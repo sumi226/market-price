@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ToastProvider from "@/components/ToastProvider";
+import { CartProvider } from "@/components/CartProvider";
 
 const notoSerifBengali = Noto_Serif_Bengali({
   subsets: ["latin", "bengali"],
@@ -21,10 +22,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${notoSerifBengali.className} h-full antialiased`}
     >
       <body className="flex min-h-screen flex-col">
-        <ToastProvider />
-        <Navbar />
-        <div className="flex flex-1 flex-col">{children}</div>
-        <Footer />
+        <CartProvider>
+          <ToastProvider />
+          <Navbar />
+          <div className="flex flex-1 flex-col">{children}</div>
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

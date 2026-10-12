@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Product } from "@/types/product";
 import { formatBn, getChange } from "@/lib/products";
+import AddToCartButton from "@/components/AddToCartButton";
 
 type Props = {
   product: Product;
@@ -25,11 +26,11 @@ export default function ProductCard({ product }: Props) {
         : "— ০.০%";
 
   return (
-    <Link
-      href={`/product/${encodeURIComponent(product.slug)}`}
-      className="card border border-emerald-300 bg-emerald-200 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-    >
-      <div className="card-body gap-3 p-4 sm:p-5">
+    <article className="card border border-emerald-300 bg-emerald-200 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+      <Link
+        href={`/product/${encodeURIComponent(product.slug)}`}
+        className="card-body gap-3 p-4 sm:p-5"
+      >
         <div className="flex h-20 items-center justify-center rounded-xl bg-base-200 text-5xl">
           <span aria-hidden="true">{product.image}</span>
         </div>
@@ -51,7 +52,13 @@ export default function ProductCard({ product }: Props) {
             {changeLabel}
           </span>
         </div>
+        <span className="link link-hover text-sm text-emerald-800">
+          বিস্তারিত দেখুন
+        </span>
+      </Link>
+      <div className="px-4 pb-4 sm:px-5 sm:pb-5">
+        <AddToCartButton product={product} />
       </div>
-    </Link>
+    </article>
   );
 }
