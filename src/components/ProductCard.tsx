@@ -27,7 +27,7 @@ export default function ProductCard({ product }: Props) {
   return (
     <Link
       href={`/product/${encodeURIComponent(product.slug)}`}
-      className="card border border-base-300 bg-base-100 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+      className="card border border-emerald-300 bg-emerald-200 shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
     >
       <div className="card-body gap-3 p-4 sm:p-5">
         <div className="flex h-20 items-center justify-center rounded-xl bg-base-200 text-5xl">

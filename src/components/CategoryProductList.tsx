@@ -35,7 +35,7 @@ export default function CategoryProductList({
         <label className="flex items-center gap-2 text-sm">
           <span>সাজান:</span>
           <select
-            className="select select-bordered select-sm"
+            className="select select-bordered select-sm border-emerald-300 bg-emerald-50 focus:border-emerald-500"
             value={sort}
             onChange={(e) => setSort(e.target.value as SortOption)}
           >

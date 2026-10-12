@@ -28,6 +28,20 @@ export default async function ProductDetailsPage({ params }: Props) {
 
   if (!product) notFound();
 
+  const marketPrices = product.markets;
+  const lowestPrice = marketPrices.length
+    ? Math.min(...marketPrices.map((market) => market.min))
+    : product.price;
+  const highestPrice = marketPrices.length
+    ? Math.max(...marketPrices.map((market) => market.max))
+    : product.price;
+  const averagePrice = marketPrices.length
+    ? marketPrices.reduce(
+        (total, market) => total + (market.min + market.max) / 2,
+        0,
+      ) / marketPrices.length
+    : product.price;
+
   return (
     <main className="mx-auto max-w-5xl space-y-8 px-4 py-10 sm:px-6">
       <Link href="/" className="link link-hover text-sm">
@@ -59,9 +73,9 @@ export default async function ProductDetailsPage({ params }: Props) {
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {[
-            { label: "সর্বনিম্ন দাম", value: product.price },
-            { label: "সর্বোচ্চ দাম", value: product.price },
-            { label: "গড় দাম", value: product.price },
+            { label: "সর্বনিম্ন বাজারদর", value: lowestPrice },
+            { label: "সর্বোচ্চ বাজারদর", value: highestPrice },
+            { label: "গড় বাজারদর", value: averagePrice },
           ].map((item) => (
             <div
               key={item.label}
@@ -75,11 +89,12 @@ export default async function ProductDetailsPage({ params }: Props) {
             </div>
           ))}
         </div>
-
-        <p className="mt-3 text-sm text-base-content/60">
-          প্রকৃত সর্বনিম্ন, সর্বোচ্চ ও গড় দাম দেখাতে বাজারভিত্তিক price data
-          API থেকে নিতে হবে।
-        </p>
+        {marketPrices.length > 0 && (
+          <p className="mt-3 text-sm text-base-content/60">
+            গড় বাজারদর প্রতিটি বাজারের সর্বনিম্ন ও সর্বোচ্চ দামের মধ্যমানের
+            গড় হিসেবে দেখানো হয়েছে।
+          </p>
+        )}
       </section>
 
       <section>
@@ -90,16 +105,32 @@ export default async function ProductDetailsPage({ params }: Props) {
             <thead>
               <tr>
                 <th>বাজার</th>
-                <th>একক</th>
-                <th>আজকের দাম</th>
+                <th>বিভাগ</th>
+                <th>সর্বনিম্ন</th>
+                <th>সর্বোচ্চ</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td colSpan={3} className="py-8 text-center">
-                  এই পণ্যের বাজারভিত্তিক তথ্য API-তে যুক্ত হলে এখানে দেখানো হবে।
-                </td>
-              </tr>
+              {marketPrices.length > 0 ? (
+                marketPrices.map((market) => (
+                  <tr key={`${market.marketName}-${market.division}`}>
+                    <td>{market.marketName}</td>
+                    <td>{market.division}</td>
+                    <td>
+                      {formatBn(market.min)} টাকা / {product.unit}
+                    </td>
+                    <td>
+                      {formatBn(market.max)} টাকা / {product.unit}
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={4} className="py-8 text-center">
+                    এই পণ্যের বাজারভিত্তিক তথ্য পাওয়া যায়নি।
+                  </td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

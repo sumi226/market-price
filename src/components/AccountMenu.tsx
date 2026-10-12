@@ -38,7 +38,10 @@ export default function AccountMenu() {
         <Link className="btn btn-ghost btn-sm sm:btn-md" href="/sign-in">
           লগইন
         </Link>
-        <Link className="btn btn-primary btn-sm sm:btn-md" href="/sign-up">
+        <Link
+          className="btn btn-sm border-emerald-500 bg-emerald-500 text-white hover:border-emerald-600 hover:bg-emerald-600 sm:btn-md"
+          href="/sign-up"
+        >
           রেজিস্টার
         </Link>
       </div>

@@ -1,4 +1,3 @@
-import Image from "next/image"; 
 import Hero from "@/components/Hero";
 import ProductSections from "@/components/ProductSection";
 
@@ -19,7 +18,10 @@ export default function HomePage() {
           নিত্যপ্রয়োজনীয় পণ্যের দাম জানুন, বাজারের সঙ্গে থাকুন।
         </p>
 
-        <a href="#sob-ponno" className="btn btn-primary mt-6">
+        <a
+          href="#sob-ponno"
+          className="btn mt-6 border-emerald-500 bg-emerald-500 text-white hover:border-emerald-600 hover:bg-emerald-600"
+        >
           সব পণ্য দেখুন
         </a>
       </section>

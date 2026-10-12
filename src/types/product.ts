@@ -12,10 +12,13 @@ export type Product = {
   previousPrice: number;
   today: number;
   yesterday: number;
+  markets: MarketPrice[];
   description?: string;
 };
 
 export type MarketPrice = {
   marketName: string;
-  price: number;
+  division: string;
+  min: number;
+  max: number;
 };

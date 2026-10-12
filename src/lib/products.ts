@@ -45,6 +45,17 @@ function getText(
   return fallback;
 }
 
+function normalizeMarkets(value: unknown): Product["markets"] {
+  if (!Array.isArray(value)) return [];
+
+  return value.filter(isApiRecord).map((market) => ({
+    marketName: getText(market, ["market", "marketName"], "নামহীন বাজার"),
+    division: getText(market, ["division"], "বিভাগ উল্লেখ নেই"),
+    min: toNumber(market.min),
+    max: toNumber(market.max),
+  }));
+}
+
 function normalizeProduct(item: ApiRecord): Product {
   const today = toNumber(item.today);
   const yesterday = toNumber(item.yesterday);
@@ -77,6 +88,7 @@ function normalizeProduct(item: ApiRecord): Product {
     previousPrice: yesterday,
     today,
     yesterday,
+    markets: normalizeMarkets(item.markets),
     description: getText(item, ["description", "descriptionBn", "summary"]),
   };
 }

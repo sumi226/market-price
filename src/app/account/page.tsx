@@ -17,7 +17,10 @@ export default async function AccountPage() {
           <p className="text-sm text-base-content/60">আপনার অ্যাকাউন্ট</p>
           <h1 className="text-2xl font-black">{session.user.name}</h1>
           <p>{session.user.email}</p>
-          <Link className="btn btn-primary btn-sm mt-3 self-start sm:btn-md" href="/">
+          <Link
+            className="btn btn-sm mt-3 self-start border-emerald-500 bg-emerald-500 text-white hover:border-emerald-600 hover:bg-emerald-600 sm:btn-md"
+            href="/"
+          >
             হোম পেজে ফিরুন
           </Link>
         </div>

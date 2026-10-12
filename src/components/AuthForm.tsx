@@ -106,7 +106,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
   return (
     <main className="mx-auto flex w-full max-w-6xl flex-1 items-center justify-center px-4 py-10 sm:px-6">
-      <section className="card w-full max-w-md border border-base-300 bg-base-100 shadow-xl">
+      <section className="card w-full max-w-md border border-emerald-200 bg-emerald-50 shadow-xl">
         <div className="card-body gap-5 p-6 sm:p-8">
           <div className="text-center">
             <h1 className="text-2xl font-black text-blue-950 sm:text-3xl">
@@ -125,7 +125,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
                 <span className="label-text mb-2">নাম</span>
                 <input
                   autoComplete="name"
-                  className="input input-bordered w-full"
+                  className="input input-bordered w-full border-emerald-300 bg-white focus:border-emerald-500 focus:outline-emerald-500"
                   name="name"
                   placeholder="আপনার নাম"
                   type="text"
@@ -137,7 +137,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
               <span className="label-text mb-2">ইমেইল</span>
               <input
                 autoComplete="email"
-                className="input input-bordered w-full"
+                className="input input-bordered w-full border-emerald-300 bg-white focus:border-emerald-500 focus:outline-emerald-500"
                 name="email"
                 placeholder="name@example.com"
                 type="email"
@@ -148,7 +148,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
               <span className="label-text mb-2">পাসওয়ার্ড</span>
               <input
                 autoComplete={isSignUp ? "new-password" : "current-password"}
-                className="input input-bordered w-full"
+                className="input input-bordered w-full border-emerald-300 bg-white focus:border-emerald-500 focus:outline-emerald-500"
                 name="password"
                 placeholder={isSignUp ? "কমপক্ষে ৮ অক্ষর" : "আপনার পাসওয়ার্ড"}
                 type="password"
@@ -156,7 +156,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
             </label>
 
             <button
-              className="btn btn-primary w-full"
+              className="btn w-full border-emerald-500 bg-emerald-500 text-white hover:border-emerald-600 hover:bg-emerald-600"
               disabled={isPending}
               type="submit"
             >
@@ -177,7 +177,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <button
-              className="btn btn-outline btn-sm sm:btn-md"
+              className="btn btn-sm border-emerald-500 bg-emerald-500 text-white hover:border-emerald-600 hover:bg-emerald-600 sm:btn-md"
               disabled={isPending}
               onClick={() => void handleSocialSignIn("google")}
               type="button"
@@ -185,7 +185,7 @@ export default function AuthForm({ mode }: AuthFormProps) {
               Google দিয়ে চালিয়ে যান
             </button>
             <button
-              className="btn btn-outline btn-sm sm:btn-md"
+              className="btn btn-sm border-emerald-500 bg-emerald-500 text-white hover:border-emerald-600 hover:bg-emerald-600 sm:btn-md"
               disabled={isPending}
               onClick={() => void handleSocialSignIn("github")}
               type="button"

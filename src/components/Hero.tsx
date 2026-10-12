@@ -9,7 +9,7 @@ const Hero = () => {
     return (
 
     <section className="container mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:py-12">
-      <div className="grid grid-cols-1 items-center gap-8 overflow-hidden rounded-2xl bg-white shadow-xl md:grid-cols-2 md:gap-6">
+      <div className="grid grid-cols-1 items-center gap-8 overflow-hidden rounded-2xl  bg-white shadow-xl md:grid-cols-2 md:gap-6"> 
         {/* Left Side: Content */}
         <div className="p-5 sm:p-8 lg:p-12">
           {/* Eyebrow / Small Text */}
@@ -32,7 +32,7 @@ const Hero = () => {
           {/* Primary CTA: Same-page anchor */}
           <a
             href="#sob-ponno"
-            className="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 sm:text-base"
+            className="inline-flex items-center justify-center rounded-xl bg-emerald-500 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 sm:text-base"
           >
             সব পণ্য দেখুন
             <span className="ml-2" aria-hidden="true">→</span>
