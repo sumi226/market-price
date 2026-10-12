@@ -16,6 +16,25 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Authentication setup
+
+Email/password authentication uses Better Auth and MongoDB. Configure these
+server environment variables before running or deploying the app:
+
+- `BAZAR_DOR_DB_URL`
+- `BETTER_AUTH_SECRET`
+- `BETTER_AUTH_URL` (for example, `http://localhost:3000` locally)
+
+To enable Google and GitHub sign-in, also configure `GOOGLE_CLIENT_ID`,
+`GOOGLE_CLIENT_SECRET`, `GITHUB_CLIENT_ID`, and `GITHUB_CLIENT_SECRET`. Add
+these OAuth callback URLs to the matching provider applications:
+
+- `<BETTER_AUTH_URL>/api/auth/callback/google`
+- `<BETTER_AUTH_URL>/api/auth/callback/github`
+
+For Vercel, set `BETTER_AUTH_URL` to the deployed site origin and add the same
+environment variables in the project settings.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

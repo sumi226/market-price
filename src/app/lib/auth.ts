@@ -13,10 +13,29 @@ const client = new MongoClient(mongoDbUrl);
 const db = client.db('bazar-dor-client');
 
 export const auth = betterAuth({
-     emailAndPassword: { 
-    enabled: true, 
-  }, 
- 
+  baseURL: process.env.BETTER_AUTH_URL,
+  secret: process.env.BETTER_AUTH_SECRET,
+  emailAndPassword: {
+    enabled: true,
+  },
+  socialProviders: {
+    ...(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET
+      ? {
+          google: {
+            clientId: process.env.GOOGLE_CLIENT_ID,
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+          },
+        }
+      : {}),
+    ...(process.env.GITHUB_CLIENT_ID && process.env.GITHUB_CLIENT_SECRET
+      ? {
+          github: {
+            clientId: process.env.GITHUB_CLIENT_ID,
+            clientSecret: process.env.GITHUB_CLIENT_SECRET,
+          },
+        }
+      : {}),
+  },
   database: mongodbAdapter(db, {
     client,
   }),
