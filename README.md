@@ -1,55 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+1. Project Name :-
 
-## Getting Started
+বাজার দর (BazarDor) — A Smart Daily Market Price Tracking Platform.
 
-First, run the development server:
+2. Short Description :-
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+BazarDor is a web-based platform designed to help consumers check daily market prices of essential commodities in Bangladesh. It provides up-to-date price information for vegetables, fish, meat, rice, and other daily necessities, helping users compare prices, make informed purchasing decisions, and manage their household budgets more effectively.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Technologies Used :-
 
-## Authentication setup
+- Next.js -> Build the UI
+- App router(Better Auth) + Handle page navigation
+- Database: MongoDb
+- ailwind CSS + Any component library Styling and responsiveness(DaisyUI)
+-  GitHub, VS Code
 
-Email/password authentication uses Better Auth and MongoDB. Configure these
-server environment variables before running or deploying the app:
+4. Five Key Features :-
 
-- `BAZAR_DOR_DB_URL`
-- `BETTER_AUTH_SECRET`
-- `BETTER_AUTH_URL` (for example, `http://localhost:3000` locally)
+a. Daily Market Price Updates — View the latest prices of essential commodities.
+b. Product Price Comparison — Compare prices across different markets or locations.
+c. Category-Based Search — Browse products by categories such as vegetables, fish, meat, rice, and groceries.
+d. Location-Based Market Prices — Find market prices relevant to a specific city or area.
+e. Price History and Trends — Track price changes over time to identify increases and decreases.
 
-To enable Google and GitHub sign-in, also configure `GOOGLE_CLIENT_ID`,
-`GOOGLE_CLIENT_SECRET`, `GITHUB_CLIENT_ID`, and `GITHUB_CLIENT_SECRET`. Add
-these OAuth callback URLs to the matching provider applications:
 
-- `<BETTER_AUTH_URL>/api/auth/callback/google`
-- `<BETTER_AUTH_URL>/api/auth/callback/github`
 
-For Vercel, set `BETTER_AUTH_URL` to the deployed site origin and add the same
-environment variables in the project settings.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
